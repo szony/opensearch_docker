@@ -1,5 +1,7 @@
 services:
   opensearch:
+    env_file:
+    - .secrets
     build:
       context: ./opensearch
       args:
@@ -13,7 +15,3 @@ services:
       interval: 30s
       timeout: 3s
       retries: 5
-    networks:
-        - opensearch-net
-    env_file:
-    - .secrets
